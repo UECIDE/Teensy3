@@ -1,0 +1,27 @@
+The Teensy Audio Library uses several open source license.  This
+file is meant to be only a quick summary of the licenses used.
+For specific details, please refer to the license terms on each
+file.
+
+Most of the audio library code uses the MIT license.  The intention
+is to allow use in any projects, either open source or proprietary.
+
+The pink noise generator uses code adapted from Stefan Stenzel's
+(stefan at waldorfmusic.de) "New Shade Of Pink" example.  His
+license terms are: Use for any purpose. If used in a commercial
+product, you should give me one.  PJRC has sent Stefan a Teensy
+and an audio board.  If you use the pink noise object in a
+product, please send one to Stefan.
+
+The FFT and FIR filter objects are wrappers around the ARM
+CMSIS DSP library.  Please refer to ARM's documentation regarding
+their CMSIS license.
+
+http://www.arm.com/products/processors/cortex-m/cortex-microcontroller-software-interface-standard.php
+
+The graphical design tool is based on the Node-RED project,
+which uses the Apache license, version 2.0.  Internally, jQuery
+and Bootstrap, which use the MIT license, and D3, which uses the
+BSD license.
+
+

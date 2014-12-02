@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project name="arm-teensy3-gcc" default="build">
+
+    <property name="version" value="4.7.2" />
+    <property name="revision" value="1" />
+
+    <target name="build">
+        <mkdir dir="build/${ant.project.name}" />
+        <copy todir="build/${ant.project.name}" overwrite="true"> <fileset dir="files" includes="**/*"/> </copy>
+        <replace file="build/${ant.project.name}/compiler.txt" token="%VERSION%" value="${version}" />
+        <replace file="build/${ant.project.name}/compiler.txt" token="%REVISION%" value="${revision}" />
+
+        <jar basedir="build" destfile="${ant.project.name}_windows.jar">
+            <manifest>
+                <attribute name="Version" value="${version}-${revision}" />
+                <attribute name="Author" value="${ant.project.name}" />
+                <attribute name="Compiler" value="${ant.project.name}" />
+                <attribute name="Platform" value="windows" />
+                <attribute name="Arch" value="any" />
+                <attribute name="Family" value="teensy3" />
+                <attribute name="Description" value="Teensy 3 ARM compiler" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="install" depends="build">
+        <move file="${ant.project.name}_windows.jar" todir="/var/www/uecide/plugins-088/compilers" />
+    </target>
+
+    <target name="clean">
+        <delete dir="build" />
+        <delete file="${ant.project.name}_windows.jar" />
+    </target>
+
+</project>

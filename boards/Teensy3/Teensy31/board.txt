@@ -1,0 +1,154 @@
+name=Teensy31
+description=Teensy 3.1
+family=teensy3
+group=Teensy
+core=teensy3
+
+version=1.0.0
+revision=1
+
+board.flags=-D__MK20DX256__
+board.ldflags=-larm_cortexM4l_math
+
+upload.protocol=halfkay
+upload.maximum_size=262144
+upload.maximum_ram_size=65536
+upload.speed=12000000
+upload.disable_flushing=true
+bootloader.path=undefined
+serial.restart_cmd=true
+serial.safe_baud_rates_only=true
+upload.avrdude_wrapper=teensy_reboot
+build.mcu=mk20dx256
+build.cpu=cortex-m4
+#teensy31.build.option5=-DF_CPU=96000000
+#teensy31.build.option6=-DUSB_SERIAL
+#teensy31.build.option7=-DLAYOUT_US_ENGLISH
+build.cppoption1=-fno-rtti
+build.linkoption1=-mthumb
+build.additionalobject1=-larm_cortexM4l_math
+build.linkscript=mk20dx256.ld
+build.architecture=arm-none-eabi
+build.command.gcc=arm-none-eabi-gcc
+build.command.g++=arm-none-eabi-g++
+build.command.ar=arm-none-eabi-ar
+build.command.objcopy=arm-none-eabi-objcopy
+build.command.objdump=arm-none-eabi-objdump
+build.command.size=arm-none-eabi-size
+build.core=teensy3
+build.elide_constructors=true
+build.gnu0x=true
+build.dependency=true
+build.time_t=true
+build.post_compile_script=teensy_post_compile
+
+
+
+# USB Settings
+options.usb.name=USB Settings
+options.usb.default=serial
+options.usb.purge=true
+
+options.usb.serial.name=Serial
+options.usb.serial.flags=-DUSB_SERIAL
+
+options.usb.hid.name=Keyboard + Mouse + Joystick
+options.usb.hid.flags=-DUSB_HID
+
+options.usb.serialhid.name=Serial + Keyboard + Mouse + Joystick
+options.usb.serialhid.flags=-DUSB_SERIAL_HID
+
+options.usb.midi.name=MIDI
+options.usb.midi.flags=-DUSB_MIDI
+
+options.usb.rawhid.name=Raw HID
+options.usb.rawhid.flags=-DUSB_RAWHID
+
+options.usb.flightsim.name=Flight Sim Controls
+options.usb.flightsim.flags=-DUSB_FLIGHTSIM
+
+
+# Clock speed
+options.speed.name=Clock
+options.speed.default=72
+options.speed.purge=true
+
+options.speed.96.name=96 MHz (overclock)
+options.speed.96.flags=-DF_CPU=96000000
+
+options.speed.72.name=72 MHz
+options.speed.72.flags=-DF_CPU=72000000
+
+options.speed.48.name=48 MHz
+options.speed.48.flags=-DF_CPU=48000000
+
+options.speed.24.name=24 MHz
+options.speed.24.flags=-DF_CPU=24000000
+
+options.speed.16nousb.name=16 MHz (No USB)
+options.speed.16nousb.flags=-DF_CPU=16000000
+
+options.speed.8nousb.name=8 MHz (No USB)
+options.speed.8nousb.flags=-DF_CPU=8000000
+
+options.speed.4nousb.name=4 MHz (No USB)
+options.speed.4nousb.flags=-DF_CPU=4000000
+
+options.speed.2nousb.name=2 MHz (No USB)
+options.speed.2nousb.flags=-DF_CPU=2000000
+
+
+# Keyboard layout
+options.keys.name=Keyboard Layout
+options.keys.default=en-us
+options.keys.puge=true
+
+options.keys.en-us.name=US English
+options.keys.en-us.flags=-DLAYOUT_US_ENGLISH
+options.keys.fr-ca.name=Canadian French
+options.keys.fr-ca.flags=-DLAYOUT_CANADIAN_FRENCH
+options.keys.xx-ca.name=Canadian Multilingual
+options.keys.xx-ca.flags=-DLAYOUT_CANADIAN_MULTILINGUAL
+options.keys.cz-cz.name=Czech
+options.keys.cz-cz.flags=-DLAYOUT_CZECH
+options.keys.da-da.name=Danish
+options.keys.da-da.flags=-DLAYOUT_DANISH
+options.keys.fi-fi.name=Finnish
+options.keys.fi-fi.flags=-DLAYOUT_FINNISH
+options.keys.fr-fr.name=French
+options.keys.fr-fr.flags=-DLAYOUT_FRENCH
+options.keys.fr-be.name=French Belgian
+options.keys.fr-be.flags=-DLAYOUT_FRENCH_BELGIAN
+options.keys.fr-ch.name=French Swiss
+options.keys.fr-ch.flags=-DLAYOUT_FRENCH_SWISS
+options.keys.de-de.name=German
+options.keys.de-de.flags=-DLAYOUT_GERMAN
+options.keys.de-dm.name=German (Mac)
+options.keys.de-dm.flags=-DLAYOUT_GERMAN_MAC
+options.keys.de-ch.name=German Swiss
+options.keys.de-ch.flags=-DLAYOUT_GERMAN_SWISS
+options.keys.is-is.name=Icelandic
+options.keys.is-is.flags=-DLAYOUT_ICELANDIC
+options.keys.en-ie.name=Irish
+options.keys.en-ie.flags=-DLAYOUT_IRISH
+options.keys.it-it.name=Italian
+options.keys.it-it.flags=-DLAYOUT_ITALIAN
+options.keys.no-no.name=Norwegian
+options.keys.no-no.flags=-DLAYOUT_NORWEGIAN
+options.keys.pt-pt.name=Portuguese
+options.keys.pt-pt.flags=-DLAYOUT_PORTUGUESE
+options.keys.pt-br.name=Portuguese Brazilian
+options.keys.pt-br.flags=-DLAYOUT_PORTUGUESE_BRAZILIAN
+options.keys.es-es.name=Spanish
+options.keys.es-es.flags=-DLAYOUT_SPANISH
+options.keys.es-mx.name=Spanish Latin America
+options.keys.es-mx.flags=-DLAYOUT_SPANISH_LATIN_AMERICA
+options.keys.sv-se.name=Swedish
+options.keys.sv-se.flags=-DLAYOUT_SWEDISH
+options.keys.tr-tr.name=Turkish (partial)
+options.keys.tr-tr.flags=-DLAYOUT_TURKISH
+options.keys.en-gb.name=United Kingdom
+options.keys.en-gb.flags=-DLAYOUT_UNITED_KINGDOM
+options.keys.usint.name=US International
+options.keys.usint.flags=-DLAYOUT_US_INTERNATIONAL
+

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project name="teensy3" default="build">
+
+    <property name="version" value="120" />
+    <property name="revision" value="1" />
+
+    <target name="build">
+        <mkdir dir="build/${ant.project.name}" />
+        <copy todir="build/${ant.project.name}" overwrite="true"> <fileset dir="files" includes="**/*"/> </copy>
+        <replace file="build/${ant.project.name}/core.txt" token="%VERSION%" value="${version}" />
+        <replace file="build/${ant.project.name}/core.txt" token="%REVISION%" value="${revision}" />
+
+        <jar basedir="build" destfile="${ant.project.name}.jar">
+            <manifest>
+                <attribute name="Version" value="${version}-${revision}" />
+                <attribute name="Author" value="${ant.project.name}" />
+                <attribute name="Compiler" value="arm-teensy3-gcc" />
+                <attribute name="Core" value="${ant.project.name}" />
+                <attribute name="Platform" value="any" />
+                <attribute name="Family" value="teensy3" />
+                <attribute name="Description" value="Teensy 3 ARM core" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="install" depends="build">
+        <move file="${ant.project.name}.jar" todir="/var/www/uecide/plugins-088/cores" />
+    </target>
+
+    <target name="clean">
+        <delete dir="build" />
+        <delete file="${ant.project.name}.jar" />
+    </target>
+
+</project>
