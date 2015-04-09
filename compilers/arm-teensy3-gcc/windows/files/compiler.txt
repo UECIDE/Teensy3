@@ -18,7 +18,7 @@ compile.c=${gcc}::${cflags}::${core.flags}::${board.flags}::-o::${object.name}::
 
 compile.cpp=${gpp}::${cppflags}::${core.flags}::${board.flags}::-o::${object.name}::-c::${source.name}::${includes}
 
-compile.link=${gcc}::${ldflags}::${core.ldflags}::${board.ldflags}::-o::${build.path}/${filename}.elf::${object.filelist}::-L${build.path}::-L${cache.root}::-Wl,--start-group::${libraries}::-Wl,--end-group
+compile.link=${gcc}::${ldflags}::${core.ldflags}::${board.ldflags}::-o::${build.path}/${filename}.elf::${object.filelist}::-L${build.path}::-L${cache.root}::-Wl,--start-group::${libraries}::-Wl,--end-group::-lm
 
 ldflags=-Wl,--gc-sections,-u,main::-mthumb::-mcpu=${build.cpu}::-T${core.root}/api/${build.linkscript}
 
